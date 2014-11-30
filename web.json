@@ -1,4 +1,5 @@
 {
-  "run_list": [ "recipe[rails]" ]
-}
+  "run_list": [ "recipe[yum]", "recipe[yum-epel]", "recipe[apt]", "recipe[build-essential]", "recipe[ohai]", "recipe[runit]", "recipe[cpu]", "recipe[install_from]", "recipe[metachef]", "recipe[openssl]", "recipe[chef-sugar]",
+"recipe[nginx]", "recipe[memcached]", "recipe[redis]", "recipe[postgresql]", "recipe[ruby]", "recipe[haproxy]" ]
 
+}

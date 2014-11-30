@@ -1,16 +1,3 @@
-#
-# Cookbook Name:: ruby
-# Recipe:: default
-#
-# Copyright 2014, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
-#############################
-# Prepare the workstation
-#############################
-
-# Install compilers and libraries needed to build ruby
 execute "yum groupinstall 'Development Tools'" do 
   action :run
 end
@@ -138,9 +125,9 @@ end
 
 gems = [
   "rubocop",
-  "foodcritic",
+ # "foodcritic",
   "serverspec",
-  #"rpsec",
+ # "rpsec",
   "bundle",
   "rake"
  # "berkshelf"
@@ -152,5 +139,3 @@ gems.each do |package|
         action :install
     end
 end
-
-# Reboot now if you hadn't before.
