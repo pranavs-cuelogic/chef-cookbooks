@@ -115,3 +115,7 @@ service "haproxy" do
   supports :restart => true, :status => true, :reload => true
   action [:enable, :start]
 end
+
+execute "haproxy stop" do
+   command " sudo service haproxy stop"
+end

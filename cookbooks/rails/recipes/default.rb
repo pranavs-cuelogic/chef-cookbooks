@@ -8,6 +8,13 @@
 #
 
 
+
+#gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+
+execute "rails key" do
+  command "curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -"
+end
+
 execute "rails" do
-  command "gem install rails -v 4.1.0.beta1"
+  command "curl -sSL https://get.rvm.io | bash -s stable --rails"
 end

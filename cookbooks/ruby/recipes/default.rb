@@ -1,4 +1,4 @@
-execute "yum groupinstall 'Development Tools'" do 
+execute "yum groupinstall -y 'Development Tools'" do 
   action :run
 end
 
