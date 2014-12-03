@@ -6,16 +6,15 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package 'nginx' do
-  action :install
+
+execute "Nginx add repo" do
+  command "rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm || true"
 end
-service 'nginx' do
-  action [ :enable, :start ]
+
+execute "Nginx install 1.6" do
+    command "sudo yum -y install nginx16"
 end
-cookbook_file "/usr/share/nginx/www/index.html" do
-  source "index.html"
-  mode "0644"
-end
-execute "ails" do
-  command "mv /etc/nginx/sites-available/default /etc/nginx/sites-available/backupdefault"
+
+execute "stop nginx" do
+    command "sudo service nginx stop"
 end

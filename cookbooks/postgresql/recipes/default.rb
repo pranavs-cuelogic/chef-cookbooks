@@ -1,18 +1,48 @@
-#
-# Cookbook Name:: postgresql
-# Recipe:: default
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+begin
+execute "postgres repo" do
 
-include_recipe "postgresql::client"
+#  r = `rpm -qa | grep postgresql`
+ # puts "-----------------#{r.inspect} #{r.class}"
+ # if r.blank?
+begin
+    command "sudo rpm -Uvh http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-redhat93-9.3-1.noarch.rpm || true"
+rescue => e
+  puts "haha cauught #{e.class}"
+end
+#  end
+end
+
+rescue => ee
+ puts "-------in other rescue #{ee.class}"
+end
+
+
+execute "postgres install" do
+
+ command "sudo yum install -y postgresql93-server postgresql93"
+
+end
+
+
+
+execute "postgres deb init" do
+
+ command "/etc/init.d/postgresql-9.3 initdb"
+
+end
+
+
+
+execute "postgres start" do
+
+ command "sudo service postgresql-9.3 start"
+
+end
+
+
+
+execute "postgres startup on" do
+
+ command "sudo chkconfig postgresql-9.3 on"
+
+end
