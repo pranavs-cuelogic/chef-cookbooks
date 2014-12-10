@@ -1,2 +1,2 @@
-file_cache_path "/vagrant/chef-solo"
-cookbook_path "/vagrant/chef-cookbooks/cookbooks"
+file_cache_path "/NimbusGuru/chef-solo"
+cookbook_path "/NimbusGuru/chef-cookbooks/cookbooks"
