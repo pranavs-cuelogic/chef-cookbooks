@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "MarketingGuru-V01"
+  config.vm.box = "Rails"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network :private_network, ip: "192.168.11.11"
+   config.vm.network :private_network, ip: "192.168.11.11"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "shared", "/vagrant/"
+  config.vm.synced_folder "shared", "/NimbusGuru/"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -64,11 +64,11 @@ Vagrant.configure("2") do |config|
   # some recipes and/or roles.
   #
   # config.vm.provision :chef_solo do |chef|
-  #   chef.cookbooks_path = "cookbooks"
-  #   chef.roles_path = "roles"
+  #   chef.cookbooks_path = "shared/chef-cookbooks/cookbooks"
+  #   chef.roles_path = "shared/chef-cookbooks/roles"
   #   chef.data_bags_path = "data_bags"
   #   chef.add_recipe "mysql"
-  #   chef.add_role "web"
+  #   chef.add_role "dev"
   #
   #   # You may also specify custom JSON attributes:
   #   chef.json = { :mysql_password => "foo" }
