@@ -19,29 +19,11 @@
 # EOH
 #end
 
-execute "passenger" do
- command "gem install passenger"
-end
-
-#execute "update" do
-# command "yum install -y curl-devel sqlite-devel libyaml-devel"
-#end
-
 #execute "passenger" do
-# command "passenger-install-nginx-module --auto"
+# command "gem install passenger"
 #end
 
-
-#template "/etc/rc.d/init.d/nginx" do
-#        source "nginx.erb"
-#        owner  "root"
-#        group  "root"
-#        mode    755
-#notifies :reload, 'service[nginx]'
-#end
-
-
-##############################################################
+#############################################################
 #gem_package 'passenger' do
 #    version '4.0.55'
 #    #gem_binary '/usr/local/rvm/gems/ruby-2.1.5/bin'
